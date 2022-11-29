@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { searchText } from './Context';
+import { globalState } from './Context';
 import CoinItem from './CoinItem';
 import { Pagination } from '@material-ui/lab';
 
@@ -20,7 +20,7 @@ const CoinStyle = {
 }
 
 export default function Coin({coins}) {
-  const {text} = useContext(searchText);
+  const {text} = useContext(globalState);
   const [page, setPage] = useState(1);
   let filterCoins = [];
   //checking search text empty or not and filter out the data before displaying

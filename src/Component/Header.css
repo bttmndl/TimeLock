@@ -1,18 +1,25 @@
 .container {
     position: sticky;
     top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
 }
 .row {
-    background-color: rgb(150, 149, 149);
+    background-color: rgb(239, 231, 231); 
 }
 .box {
     min-height: 50px;
     padding: 5px;
+    width: 100%;
+}
+.brand-name{
+    margin-left: 120px;
+}
+.nav-item a{
+    color: black;
 }
 
-.nav-item a{
-    color: white;
-}
 
 
 

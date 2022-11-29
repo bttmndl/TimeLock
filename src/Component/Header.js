@@ -1,19 +1,26 @@
 import React, { useContext} from 'react';
-import { searchText } from './Context';
+import { globalState } from './Context';
 import './Header.css';
+import {useNavigate} from 'react-router-dom';
 
-
+const brandButtonStyle = {
+  border: 'none',
+  backgroundColor : 'rgb(239, 231, 231)',
+  fontWeight: '900',
+  fontFamily: 'Times New Roman", Times, serif',
+  fontSize: '28px',
+}
 
 export default function Header() {
-  
-  const {text, setText} = useContext(searchText);
+  const navigate = useNavigate();
+  const {text, setText} = useContext(globalState);
   return (
     <div className="container">
         <div className="row">
-          <div className="col">
-            <div className="box"><h3>Time Lock</h3></div>
+          <div className="col-4">
+            <div className="box brand-name"><button style={brandButtonStyle} onClick={()=>navigate('/')}>TimeLock</button></div>
           </div>
-          <div className="col">
+          <div className="col-4">
             <div className="box">
               <form className="d-flex" role="search">
                 <input onChange={(e)=>{e.preventDefault();setText(e.target.value)}} className="form-control me-3" type="search" placeholder="Search" aria-label="Search" />
@@ -21,7 +28,7 @@ export default function Header() {
               </form>
             </div>
           </div>
-          <div className="col">
+          <div className="col-4">
             <div className="box">
               <ul className="nav justify-content-end">
                 <li className="nav-item">
