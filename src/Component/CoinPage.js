@@ -16,7 +16,7 @@ export default function CoinPage() {
   return (
     <div style={CoinpageStyle}>
       <CoinDetail id={id}/>
-      <CoinChart />
+      <CoinChart id={id}/>
     </div>
   )
 }

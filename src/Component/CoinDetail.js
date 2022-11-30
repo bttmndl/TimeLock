@@ -11,21 +11,23 @@ const CoinDetailStyle = {
 export default function CoinDetail({id}) {
   const [coinImage, setCoinImage] = useState({}); 
   const [coinName, setCoinName] = useState('');
+  const [coindata, setcoinData] = useState({});
   let url = `https://api.coingecko.com/api/v3/coins/${id}`;
   const getCoinDetail = async()=>{
     let res = await axios.get(url);
     let dt = await res.data
     setCoinImage(dt.image);
     setCoinName(dt.name);
+    setcoinData(dt);
   }
   useEffect(()=>{
     getCoinDetail();
   }, []);
-  console.log(coinImage.large);
+  
   return (
     <div style ={CoinDetailStyle}>
         <CoinSelectImage coinImageUrl={`${coinImage.large}`} coinName={coinName}/>
-        <CoinSelectDetail />
+        <CoinSelectDetail coindata = {coindata}/>
     </div>
   )
 }
