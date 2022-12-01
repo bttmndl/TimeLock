@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const CoinSelectImageStyle = {
-    marginTop: '30px',
+    marginTop: '50px',
     padding : '1rem',
     height: '17rem',
     width: '25rem',

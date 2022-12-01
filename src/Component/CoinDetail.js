@@ -4,6 +4,7 @@ import CoinSelectDetail from './CoinSelectDetail';
 import axios from 'axios';
 
 const CoinDetailStyle = {
+    paddingTop:'30px',
     height: '100vh',
     width: '30%',
     border: '2px solid white',

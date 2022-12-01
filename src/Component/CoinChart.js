@@ -1,6 +1,8 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import {Line} from 'react-chartjs-2';
+import { Chart as ChartJS } from 'chart.js/auto';
+import { Chart }            from 'react-chartjs-2';
 
 const CoinChartStyle = {
     height: '100vh',
@@ -21,17 +23,38 @@ export default function CoinChart({id}) {
   useEffect(()=>{
     getHistoricData();
   },[id,days])
+
   
   return (
     <div style={CoinChartStyle}>
-        <Line 
-          data = {{
-            labels: historicData.map((ele)=>{
-              let date = new Date(ele[0]);
-              let time = date.getHours() >12 ? `${date.getHours()-12}:${date.getMinutes()} PM`
-            })
-          }}
-        />
+      <h1>coingraph</h1>
+        {/* <Line
+              data={{
+                labels: historicData.map((coin) => {
+                  let date = new Date(coin[0]);
+                  let time =
+                    date.getHours() > 12
+                      ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+                      : `${date.getHours()}:${date.getMinutes()} AM`;
+                  return days === 1 ? time : date.toLocaleDateString();
+                }),
+
+                datasets: [
+                  {
+                    data: historicData.map((coin) => coin[1]),
+                    label: `Price ( Past ${days} Days ) in ${currency}`,
+                    borderColor: "#EEBC1D",
+                  },
+                ],
+              }}
+              options={{
+                elements: {
+                  point: {
+                    radius: 1,
+                  },
+                },
+              }}
+            /> */}
 
     </div>
   )

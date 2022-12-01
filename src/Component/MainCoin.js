@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import Coin from './Coin';
+// import Banner from './Banner';
 
 
 export default function MainCoin() {
@@ -16,6 +17,9 @@ export default function MainCoin() {
     },[coin]);
     
     return (
+      <>
+        
         <Coin coins={coin}/>
+      </>
     )
 }

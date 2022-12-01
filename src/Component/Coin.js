@@ -2,13 +2,13 @@ import React, { useContext, useState } from 'react';
 import { globalState } from './Context';
 import CoinItem from './CoinItem';
 import { Pagination } from '@material-ui/lab';
+import { TextField,ThemeProvider,Container,createTheme, } from '@material-ui/core';
 
 const CoinStyle = {
-    maxWidth: '1200px',
+    maxWidth: '100%',
     display: 'flex',
     flexWrap: 'wrap',
     gap: '2.5rem',
-    margin: '2vmin 18vmin',
     padding: '1vmin',
     background: '#ecf0f3',
     alignItems: 'center',
@@ -20,7 +20,7 @@ const CoinStyle = {
 }
 
 export default function Coin({coins}) {
-  const {text} = useContext(globalState);
+  const {text,setText} = useContext(globalState);
   const [page, setPage] = useState(1);
   let filterCoins = [];
   //checking search text empty or not and filter out the data before displaying
@@ -31,12 +31,30 @@ export default function Coin({coins}) {
   }else{
     filterCoins = [...coins];
   }
-  
+
+  const darkTheme = createTheme({
+    palette: {
+      primary: {
+        main: "#fff",
+      },
+      type: "dark",
+    },
+  });
   return (
     <>
+    <ThemeProvider theme={darkTheme}>
+      <Container style={{ textAlign: "center", marginTop:10, marginBottom:10}}>
+        <TextField
+            label="Search For a Crypto Currency.."
+            variant="outlined"
+            style={{ width: "100%", height: 50}}
+            onChange={(e) => setText(e.target.value)}
+        />
+      </Container>
+    </ThemeProvider>
     <div style = {CoinStyle}>
         {
-          filterCoins.slice((page-1)*10, page*10).map((ele, id) =>{
+          filterCoins.slice((page-1)*20, page*20).map((ele, id) =>{
               return (
                 <CoinItem ele = {ele} key ={id}/>
               )
@@ -49,13 +67,14 @@ export default function Coin({coins}) {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          color:'GrayText',
+          color:'yellow',
+          backgroundColor: 'white'
         }
       }
       count = {(filterCoins.length/10).toFixed(0)}
       onChange = {(_,value)=>{
         setPage(value);
-        window.scroll(0, 20);
+        window.scroll(0, 6);
       }}
     />
     </>

@@ -8,7 +8,8 @@ const CoinpageStyle = {
     height: '100vh',
     display: 'flex',
     justifyContent: 'center',
-    alignItem: 'center'
+    alignItem: 'center',
+    backgroundColor: 'white',
 }
 export default function CoinPage() {
   let {id} = useParams(); 
