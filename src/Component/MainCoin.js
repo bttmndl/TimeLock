@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import Coin from './Coin';
+import SearchBar from './SearchBar';
 // import Banner from './Banner';
 
 
@@ -18,7 +19,7 @@ export default function MainCoin() {
     
     return (
       <>
-        
+        <SearchBar />
         <Coin coins={coin}/>
       </>
     )
