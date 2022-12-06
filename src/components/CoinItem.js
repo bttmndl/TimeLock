@@ -30,7 +30,7 @@ const coinitemImgStyle = {
 
 export default function CoinItem({ele}) {
   return (
-    <Link to={`/coin/${ele.id}`}>
+    <Link to={`/coins/${ele.id}`}>
       <div style={coinItemStyle}>
           <img style={coinitemImgStyle} src={ele?.image} alt=""></img>
           <h3 style={h3Style}>{ele.id}</h3>
