@@ -14,6 +14,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import SideBar from './SideBar';
+import Auth from './Authentication/Auth';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -37,9 +38,9 @@ const darkTheme = createTheme({
 const Header = () => {
   const classes = useStyles();
   const { currency, setCurrency } = CryptoState();
-
+  const {view, setView} = CryptoState();
   const navigate = useNavigate();
-
+  console.log(view);
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="static">
@@ -66,6 +67,18 @@ const Header = () => {
               <MenuItem value={"INR"}>INR ₹</MenuItem>
               <MenuItem value={"CAD"}>CAD $</MenuItem>
             </Select>
+            <Select
+              variant="outlined"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={view}
+              style={{ width: 100, height: 40, marginLeft: 15 }}
+              onChange={(e) => setView(e.target.value)}
+            >
+              <MenuItem value={"Grid"}>Grid</MenuItem>
+              <MenuItem value={"List"}>List</MenuItem>
+            </Select>
+            <Auth />
           </Toolbar>
         </Container>
       </AppBar>

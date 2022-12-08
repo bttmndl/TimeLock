@@ -9,7 +9,7 @@ const CoinStyle = {
     flexWrap: 'wrap',
     gap: '2.5rem',
     padding: '1vmin',
-    background: '#ecf0f3',
+    background: 'black',
     alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'center',

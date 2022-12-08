@@ -10,17 +10,18 @@ const coinItemStyle = {
   borderRadius: '20px',
   boxSizing: 'border-box',
   background: '#ecf0f3',
-  boxShadow: '14px 14px 20px #cbced1, -14px -14px 20px white',
+  
 }
 
 const coinitemButtonStyle ={
   padding: '4px',
   width:'80px',
-  boxShadow: '14px 14px 20px #cbced1, -14px -14px 20px white',
+  cursor: 'pointer',
 }
 
 const h3Style = {
   fontWeight: 'bold',
+  color: 'black',
 }
 
 const coinitemImgStyle = {
@@ -34,7 +35,7 @@ export default function CoinItem({ele}) {
       <div style={coinItemStyle}>
           <img style={coinitemImgStyle} src={ele?.image} alt=""></img>
           <h3 style={h3Style}>{ele.id}</h3>
-          <h3>${ele.current_price}</h3>
+          <h3 style={h3Style}>${ele.current_price}</h3>
           <br></br>
           <button style={coinitemButtonStyle}>Watchlist</button>
       </div>
