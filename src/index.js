@@ -8,7 +8,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 ReactDOM.render(
     <BrowserRouter>
     <CryptoContext>
-    <App />
+      <App />
     </CryptoContext>
     </BrowserRouter>
  ,
