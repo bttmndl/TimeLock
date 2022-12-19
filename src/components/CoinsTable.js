@@ -76,7 +76,7 @@ export default function CoinsTable() {
   useEffect(()=>{
     setPage(1)
   },[search])
-  consle.log(data);
+  
   const handleSearch = () => {
     return coins.filter(
       (coin) =>
